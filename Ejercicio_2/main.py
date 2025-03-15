@@ -22,6 +22,7 @@ def main():
     guillermo.casarse(kate)
     carlos.agregar_hijo(guillermo)
     diana.agregar_hijo(guillermo)
+    carlos.casarse(diana)
 
     # Mostrar información de las familias
     print("Familia Windsor:")
@@ -33,6 +34,7 @@ def main():
     # Mostrar relaciones
     print("\nRelaciones:")
     print(f"{guillermo.nombre_completo()} está casado con {guillermo.conyuge.nombre_completo()}")
+    print(f"{carlos.nombre_completo()} está casado con {diana.nombre_completo()}")
     print(f"{carlos.nombre_completo()} es padre de {guillermo.nombre_completo()}")
     print(f"{diana.nombre_completo()} es madre de {guillermo.nombre_completo()}")
 

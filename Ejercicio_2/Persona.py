@@ -14,5 +14,7 @@ class Persona:
         self.hijos.append(hijo)
 
     def nombre_completo(self):
-        if self.apellido_de_soltera:
+        if self.apellido_de_soltera is None:
+            return f'{self.nombre} {self.apellido}'
+        else:
             return f'{self.nombre} {self.apellido} de soltera {self.apellido_de_soltera}'
