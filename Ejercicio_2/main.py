@@ -1,43 +1,40 @@
-class Persona:
-    def __init__(self, nombre, apellido, apellido_de_soltera=None):
-        self.nombre = nombre
-        self.apellido = apellido
-        self.apellido_de_soltera = apellido_de_soltera
-        self.conyuge = None
-        self.hijos = []
+from Familia import Familia
+from Persona import Persona
 
-    def casarse(self, pareja):
-        self.conyuge = pareja
-        pareja.conyuge = self
+def main():
+    # Crear personas
+    kate = Persona("Kate", "Windsor", "Middleton")
+    guillermo = Persona("Guillermo", "Windsor")
+    carlos = Persona("Carlos", "Windsor")
+    diana = Persona("Diana", "Gales", "Spencer")
 
-    def agregar_hijo(self, hijo):
-        self.hijos.append(hijo)
+    # Crear familias
+    familia_windsor = Familia("Windsor")
+    familia_gales = Familia("Gales")
 
-class Familia:
-    def __init__(self, apellido):
-        self.apellido = apellido
-        self.miembros = []
+    # Agregar miembros a las familias
+    familia_windsor.agregar_miembro(kate)
+    familia_windsor.agregar_miembro(guillermo)
+    familia_windsor.agregar_miembro(carlos)
+    familia_gales.agregar_miembro(diana)
 
-    def agregar_miembro(self, persona):
-        self.miembros.append(persona)
+    # Establecer relaciones
+    guillermo.casarse(kate)
+    carlos.agregar_hijo(guillermo)
+    diana.agregar_hijo(guillermo)
 
-# Crear personas
-kate = Persona("Kate", "Windsor", "Middleton")
-guillermo = Persona("Guillermo", "Windsor")
-carlos = Persona("Carlos", "Windsor")
-diana = Persona("Diana", "Gales", "Spencer")
+    # Mostrar información de las familias
+    print("Familia Windsor:")
+    familia_windsor.mostrar_miembros()
 
-# Crear familias
-familia_windsor = Familia("Windsor")
-familia_gales = Familia("Gales")
+    print("\nFamilia Gales:")
+    familia_gales.mostrar_miembros()
 
-# Agregar miembros a las familias
-familia_windsor.agregar_miembro(kate)
-familia_windsor.agregar_miembro(guillermo)
-familia_windsor.agregar_miembro(carlos)
-familia_gales.agregar_miembro(diana)
+    # Mostrar relaciones
+    print("\nRelaciones:")
+    print(f"{guillermo.nombre_completo()} está casado con {guillermo.conyuge.nombre_completo()}")
+    print(f"{carlos.nombre_completo()} es padre de {guillermo.nombre_completo()}")
+    print(f"{diana.nombre_completo()} es madre de {guillermo.nombre_completo()}")
 
-# Establecer relaciones
-guillermo.casarse(kate)
-carlos.agregar_hijo(guillermo)
-diana.agregar_hijo(guillermo)
+if __name__ == "__main__":
+    main()
