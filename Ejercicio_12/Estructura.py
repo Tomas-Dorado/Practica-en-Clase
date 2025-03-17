@@ -12,6 +12,6 @@ class EstructuraArqueologica:
         componentes = ', '.join([str(estructura.codigo) for estructura in self.estructuras_componente])
         return f"EstructuraArqueologica(codigo={self.codigo}, datacion={self.datacion}, materiales={self.materiales}, estructuras_componente=[{componentes}])"
 
-    class SubEstructura(EstructuraArqueologica):
-        def __init__(self, codigo, datacion, materiales, estructuras_componente=None):
-            super().__init__(codigo, datacion, materiales, estructuras_componente)
+class SubEstructura(EstructuraArqueologica):
+    def __init__(self, codigo, datacion, materiales, estructuras_componente=None):
+        super().__init__(codigo, datacion, materiales, estructuras_componente)
