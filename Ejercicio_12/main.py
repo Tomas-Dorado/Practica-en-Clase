@@ -1,4 +1,4 @@
-from Estructura import EstructuraArqueologica
+from Estructura import EstructuraArqueologica, SubEstructura
 
 # Ejemplo de uso
 estructura1 = SubEstructura("E001", "1000 AC", ["piedra", "madera"])
